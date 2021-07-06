@@ -1,59 +1,68 @@
 :root {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --card-width: 325px;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	--card-width: 325px;
 }
 
 .userList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
 .userListItem {
-  margin: 20px;
-  width: var(--card-width);
-  border-radius: 15px;
-  overflow: hidden;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  position: relative;
+	margin: 20px;
+	width: var(--card-width);
+	border-radius: 15px;
+	overflow: hidden;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	position: relative;
 }
 
 .userListItem:hover {
-  transform: scale(1.1);
-  transition: all 0.5s;
+	transform: scale(1.1);
+	transition: all 0.5s;
 }
 
 .userProfileImage {
-  border-radius: 50%;
-  border: 3px solid white;
-  margin-top: calc(var(--card-width) * 0.1);
-  width: calc(var(--card-width) * 0.35);
+	border-radius: 50%;
+	border: 3px solid white;
+	margin-top: calc(var(--card-width) * 0.1);
+	width: calc(var(--card-width) * 0.35);
 }
 
 .bgListImage {
-  object-fit: cover;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-  opacity: 0.8;
+	object-fit: cover;
+	height: 100%;
+	position: absolute;
+	z-index: -1;
+	opacity: 0.8;
 }
 
-.userInformation {
-  margin: 10px 0px;
-  text-align: center;
-  font-weight: bold;
-  line-height: 2em;
-  text-shadow: white 0px 4px 7px, white 0px -4px 7px;
+.userInformation,
+.fullName {
+	margin: 10px 0px;
+	text-align: center;
+	font-weight: bold;
+	line-height: 2em;
+	text-shadow: white 0px 4px 7px, white 0px -4px 7px;
+}
+
+.fullName {
+	font-size: 2em;
 }
 
 .buttonContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .buttonContainer * {
-  margin: 10px;
+	margin: 10px;
+}
+
+.fullNameContainer {
+	text-align: center;
 }
