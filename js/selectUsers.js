@@ -1,27 +1,39 @@
-"use strict";
+'use strict';
 
-setTimeout(selectUsers, 500);
+function selectUsers () {
+  const userCards = document.getElementsByClassName('userListItem');
+  for (const el of userCards) {
+    el.addEventListener('click', backlight);
+  }
+  if (!!document.querySelector('.fullNameContainer')) {
+    document.querySelector('.fullNameContainer').remove();
+  } // для удаления списка со страницы при смене страницы
 
-function selectUsers() {
-	const userCards = document.getElementsByClassName("userListItem");
-	for (const el of userCards) {
-		el.addEventListener("click", backlight);
-		// el.addEventListener("click", createNameList);
-	}
+  const selectedUsers = document.createElement('ul');
 
-	const selectedUsers = document.createElement("ul");
-	selectedUsers.classList.add("fullNameContainer");
-	document.getElementById("root").prepend(selectedUsers);
+  if (selectedUsers.hasChildNodes()) {
+    selectedUsers.remove();
+  }
 
-	function backlight(e) {
-		const fullNameItem = document.createElement("li");
-		if (this.hasAttribute("style")) {
-			this.removeAttribute("style");
-			fullNameItem.remove();
-		} else {
-			this.style.boxShadow = "0px 0px 25px red";
-			fullNameItem.innerText = this.querySelector(".fullName").innerText;
-			selectedUsers.append(fullNameItem);
-		}
-	}
+  selectedUsers.classList.add('fullNameContainer');
+  document.getElementById('root').prepend(selectedUsers);
+
+  function backlight (e) {
+    const namesList = selectedUsers.children;
+    const fullNameItem = document.createElement('li');
+    if (this.hasAttribute('style')) {
+      this.removeAttribute('style');
+      for (const i of namesList) {
+        if (i.innerText === this.querySelector('.fullName').innerText) {
+          i.remove();
+        }
+      }
+    } else {
+      this.style.boxShadow = '0px 0px 25px red';
+      fullNameItem.innerText = this.querySelector('.fullName').innerText;
+      selectedUsers.append(fullNameItem);
+    }
+  }
 }
+
+export default selectUsers;
